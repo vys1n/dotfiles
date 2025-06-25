@@ -1,0 +1,70 @@
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
+
+[font]
+size = 18
+
+[font.normal]
+family = "Roboto Mono Nerd Font"
+
+[font.bold]
+family = "Roboto Mono Nerd Font"
+
+[font.italic]
+family = "Roboto Mono Nerd Font"
+
+[font.bold_italic]
+family = "Roboto Mono Nerd Font"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "W"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control"
+
+[window]
+opacity = 1
+decorations = "none"
+dynamic_padding = true
+
+[window.padding]
+x = 0
+y = 0
+
+[general]
+import = ["themes/themes/enfocado_dark.toml"]
