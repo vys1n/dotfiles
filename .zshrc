@@ -24,7 +24,7 @@ alias vi="nvim"
 
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -l'
 
 # alias gs='git status'
 # alias gl='git log --oneline --graph --all'
@@ -40,6 +40,7 @@ alias python3='python3.13'
 alias pip='pip3.13'
 alias venv="source .venv/bin/activate"
 
+alias logout="gnome-session-quit --logout"
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

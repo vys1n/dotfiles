@@ -6,7 +6,7 @@ set $term alacritty
 
 set $menu rofi -show drun
 
-output * bg /home/vysin/Wallpapers/Dark/moon.jpg fill
+output * bg /home/vysin/Wallpapers/Dark/planet_music.png fill
 
 input type:keyboard {
     xkb_layout "us"
@@ -109,10 +109,14 @@ set $wallpaper /home/vysin/Wallpapers/Dark/ghost5.jpg
 set $lock swaylock -f -i $wallpaper -s fill
 bindsym F9 exec $lock
 
+bindsym $mod+x exec ~/scripts/toggle_waybar.sh
+
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # exec waybar
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 bindsym $mod+Mod1+b exec firefox
 bindsym $mod+Mod1+f exec nautilus
@@ -148,7 +152,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    swaybar_command waybar
+    # swaybar_command waybar
+    # status_command i3status ~/.config/i3status/config
     # font pango: Roboto Mono Nerd Font 12
     # position bottom
 }

@@ -3,7 +3,7 @@ TERM = "xterm-256color"
 COLORTERM = "truecolor"
 
 [font]
-size = 18
+size = 19
 
 [font.normal]
 family = "Roboto Mono Nerd Font"
@@ -58,7 +58,7 @@ key = "N"
 mods = "Control"
 
 [window]
-opacity = 1
+opacity = 0.95
 decorations = "none"
 dynamic_padding = true
 
@@ -67,4 +67,4 @@ x = 0
 y = 0
 
 [general]
-import = ["themes/themes/enfocado_dark.toml"]
+import = ["themes/themes/moonfly.toml"]

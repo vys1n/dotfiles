@@ -11,12 +11,14 @@ vim.keymap.set("i", "(", "()<Left>", { noremap = true })
 vim.keymap.set("i", "[", "[]<Left>", { noremap = true })
 vim.keymap.set("i", "{", "{}<Left>", { noremap = true })
 
-vim.keymap.set("i", "{<CR>", "{<CR>}<Eskdz cnc>O", { noremap = true })
+vim.keymap.set("i", "{<CR>", "{<CR>}", { noremap = true })
 
 vim.keymap.set("i", "{{", "{", { noremap = true })
 vim.keymap.set("i", "{}", "{}", { noremap = true })
 vim.keymap.set("i", "'", "''<Left>", { noremap = true })
 vim.keymap.set("i", "\"", "\"\"<Left>", { noremap = true })
+
+vim.keymap.set('i', '{', '{<CR>}<Esc>O', { desc = 'Auto-format braces with indentation' })
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

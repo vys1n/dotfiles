@@ -24,9 +24,6 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
-
-
-
         require("mason").setup()
         require("mason-lspconfig").setup({
             automatic_installation = false,
