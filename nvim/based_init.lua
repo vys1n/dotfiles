@@ -1,20 +1,30 @@
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.ignorecase = true
+vim.o.cursorcolumn = false
+vim.o.smartindent = false
 vim.o.signcolumn = "yes"
 vim.o.termguicolors = true
+vim.o.undofile = true
+vim.o.incsearch = true
 vim.o.wrap = false
 vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.swapfile = false
 vim.g.mapleader = " "
 vim.o.winborder = "rounded"
 vim.o.clipboard = "unnamedplus"
 
-vim.keymap.set('n', '<leader>so', ':update<CR> :source<CR>')
-vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('n', '<leader>q', ':quit<CR>')
+local map = vim.keymap.set
 
-vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
-vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
+map('n', '<leader>so', ':update<CR> :source<CR>')
+map('n', '<leader>w', ':write<CR>')
+map('n', '<leader>q', ':quit<CR>')
+
+map({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
+map({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
+map({ 'n', 'v', 'x' }, '<leader>s', ':e #<CR>')
+map({ 'n', 'v', 'x' }, '<leader>S', ':sf #<CR>')
 
 vim.pack.add({
 	{ src = "https://github.com/vague2k/vague.nvim" },
@@ -40,8 +50,10 @@ require "nvim-treesitter.configs".setup({
 
 require "oil".setup()
 
-vim.keymap.set('n', '<leader>e', ":Oil<CR>")
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+map('n', '<leader>e', ":Oil<CR>")
+-- map('t', '^[', "^\^N")
+-- map('t', '^O', "^\^O")
+map('n', '<leader>lf', vim.lsp.buf.format)
 vim.lsp.enable({ "lua_ls" })
 
 require "vague".setup({ transparent = true })
