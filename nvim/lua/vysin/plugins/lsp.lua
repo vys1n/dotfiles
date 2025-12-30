@@ -2,8 +2,8 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        { "mason-org/mason.nvim",           version = "^1.0.0" },
-        { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
@@ -29,8 +29,9 @@ return {
             automatic_installation = false,
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer",
-                "tinymist",
+                "clangd",
+                "jdtls",
+                "pyright"
             },
             handlers = {
                 function(server_name)
@@ -38,27 +39,16 @@ return {
                         capabilities = capabilities
                     }
                 end,
-                ["svelte"] = function()
-                    require("lspconfig")["svelte"].setup({
+                ["jdtls"] = function()
+                    require("lspconfig").jdtls.setup {
                         capabilities = capabilities,
                         on_attach = function(client, bufnr)
-                            vim.api.nvim_create_autocmd("BufWritePost", {
-                                pattern = { "*.js", "*.ts" },
-                                callback = function(ctx)
-                                    -- this bad boy updates imports between svelte and ts/js files
-                                    client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-                                end,
-                            })
+                            -- Java-specific keymaps (optional)
+                            local opts = { buffer = bufnr }
+                            vim.keymap.set("n", "<leader>oi", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+                            vim.keymap.set("n", "<leader>ev", "<Cmd>lua require'jdtls'.extract_variable()<CR>", opts)
+                            vim.keymap.set("n", "<leader>ec", "<Cmd>lua require'jdtls'.extract_constant()<CR>", opts)
                         end
-                    })
-                end,
-                ["tinymist"] = function()
-                    require("lspconfig")["tinymist"].setup {
-                        capabilities = capabilities,
-                        settings = {
-                            formatterMode = "typstyle",
-                            exportPdf = "never"
-                        },
                     }
                 end,
                 ["lua_ls"] = function()

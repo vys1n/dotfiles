@@ -93,19 +93,23 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-        vim.cmd("colorscheme moonfly")
         vim.g.moonflyTransparent = true
         vim.g.moonflyCursorColor = true
         vim.g.moonflyItalics = false
+
+        vim.cmd("colorscheme moonfly")
+
         vim.cmd([[
-      highlight Normal      ctermbg=NONE guibg=NONE
-      highlight NormalNC    ctermbg=NONE guibg=NONE
-      highlight NormalFloat ctermbg=NONE guibg=NONE
-      highlight FloatBorder ctermbg=NONE guibg=NONE
-      highlight Pmenu       ctermbg=NONE guibg=NONE
-      highlight SignColumn  ctermbg=NONE guibg=NONE
-      highlight VertSplit   ctermbg=NONE guibg=NONE
-      ]])
+          highlight Normal        ctermbg=NONE guibg=NONE
+          highlight NormalNC      ctermbg=NONE guibg=NONE
+          highlight NormalFloat   ctermbg=NONE guibg=NONE
+          highlight FloatBorder   ctermbg=NONE guibg=NONE
+          highlight Pmenu         ctermbg=NONE guibg=NONE
+          highlight SignColumn    ctermbg=NONE guibg=NONE
+          highlight VertSplit     ctermbg=NONE guibg=NONE
+          highlight LineNr        ctermbg=NONE guibg=NONE
+          highlight CursorLineNr  ctermbg=NONE guibg=NONE
+        ]])
     end,
 }
 
