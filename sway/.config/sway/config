@@ -6,7 +6,7 @@ set $term alacritty
 
 set $menu rofi -show drun
 
-output * bg /home/vysin/Wallpapers/Dark/planet_music.png fill
+output * bg /home/vysin/Wallpapers/CozyPixels/Nord/tech_retro/FormulaOne_Vettel_1.jpg fill
 
 input type:keyboard {
     xkb_layout "us"
@@ -22,8 +22,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 bindsym $mod+Return exec $term
 
@@ -105,7 +105,7 @@ bindsym $mod+a focus parent
 
 bindsym $mod+F12 exec shutdown now
 
-set $wallpaper /home/vysin/Wallpapers/Dark/ghost5.jpg
+set $wallpaper /home/vysin/Wallpapers/rdr.jpg
 set $lock swaylock -f -i $wallpaper -s fill
 bindsym F9 exec $lock
 
@@ -113,6 +113,8 @@ bindsym $mod+x exec ~/scripts/toggle_waybar.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+
+exec mako
 
 # exec waybar
 

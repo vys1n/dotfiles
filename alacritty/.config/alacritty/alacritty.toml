@@ -3,7 +3,7 @@ TERM = "xterm-256color"
 COLORTERM = "truecolor"
 
 [font]
-size = 19
+size = 16
 
 [font.normal]
 family = "Roboto Mono Nerd Font"
@@ -54,11 +54,16 @@ mods = "Control"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
+key = "Return"
+mods = "Super|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
 key = "N"
 mods = "Control"
 
 [window]
-opacity = 0.95
+opacity = 0.98
 decorations = "none"
 dynamic_padding = true
 
@@ -67,4 +72,4 @@ x = 0
 y = 0
 
 [general]
-import = ["themes/themes/moonfly.toml"]
+import = ["monokai_charcoal.toml"]

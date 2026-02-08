@@ -44,7 +44,7 @@ alias vim=nvim
 alias vi="nvim"
 
 # alias ls='lsd'
-alias ll='ls -avlF'
+alias ll='ls -AvlF'
 alias l='ls -lv'
 
 # alias gs='git status'
@@ -54,6 +54,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias update='sudo apt update && sudo apt upgrade'
+
+alias vifzf='nvim $(fzf --preview="bat --color=always {}")'
 
 alias py='python'
 alias python='python3'
@@ -75,3 +77,5 @@ export PATH="/usr/local/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+export PATH=$PATH:/usr/local/go/bin
