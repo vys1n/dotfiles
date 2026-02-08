@@ -6,7 +6,7 @@ set $term alacritty
 
 set $menu rofi -show drun
 
-output * bg /home/vysin/Wallpapers/CozyPixels/Nord/tech_retro/FormulaOne_Vettel_1.jpg fill
+output * bg wallpaper.jpg fill
 
 input type:keyboard {
     xkb_layout "us"
