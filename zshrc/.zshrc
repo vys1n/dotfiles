@@ -49,7 +49,7 @@ alias ...="cd ../.."
 
 alias update="sudo apt update && sudo apt upgrade"
 
-alias vifzf='nvim $(fzf --preview="bat --color=always {}")'
+alias vifzf='nvim $(fzf --preview="batcat --color=always {}")'
 
 alias py="python3"
 alias python="python3"
