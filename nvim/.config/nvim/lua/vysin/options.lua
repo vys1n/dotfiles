@@ -29,7 +29,7 @@ vim.opt.updatetime = 50
 
 vim.opt.mouse = "a"
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
 
 vim.opt.backspace = { "indent", "eol", "start" }
 
