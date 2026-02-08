@@ -23,26 +23,26 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 bindkey -s '^F' '~/scripts/tmux-sessionizer.sh\n'
 
 
-# LS_COLORS="di=01;36:ln=01;35:ex=01;32:so=01;33:pi=33:bd=33:cd=33:or=01;31:mi=01;31:"
-# LS_COLORS+="ow=01;36:tw=01;36:st=01;36:"
-#
-# # Archives
-# LS_COLORS+="*.tar=01;31:*.tgz=01;31:*.gz=01;31:*.zip=01;31:*.7z=01;31:*.rar=01;31:"
-#
-# # Images
-# LS_COLORS+="*.jpg=01;35:*.jpeg=01;35:*.png=01;35:*.gif=01;35:*.svg=01;35:"
-#
-# # Video
-# LS_COLORS+="*.mp4=01;35:*.mkv=01;35:*.webm=01;35:*.avi=01;35:"
-#
-# export LS_COLORS
+LS_COLORS="di=01;36:ln=01;35:ex=01;32:so=01;33:pi=33:bd=33:cd=33:or=01;31:mi=01;31:"
+LS_COLORS+="ow=01;36:tw=01;36:st=01;36:"
+
+# Archives
+LS_COLORS+="*.tar=01;31:*.tgz=01;31:*.gz=01;31:*.zip=01;31:*.7z=01;31:*.rar=01;31:"
+
+# Images
+LS_COLORS+="*.jpg=01;35:*.jpeg=01;35:*.png=01;35:*.gif=01;35:*.svg=01;35:"
+
+# Video
+LS_COLORS+="*.mp4=01;35:*.mkv=01;35:*.webm=01;35:*.avi=01;35:"
+
+export LS_COLORS
 
 
 alias vim="nvim"
 alias vi="nvim"
 
-alias ll="lsd -AvlF"
-alias l="lsd -lv"
+alias ll="ls -AvlF"
+alias l="ls -lv"
 
 alias ..="cd .."
 alias ...="cd ../.."
