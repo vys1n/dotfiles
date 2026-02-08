@@ -41,8 +41,8 @@ bindkey -s '^F' '~/scripts/tmux-sessionizer.sh\n'
 alias vim="nvim"
 alias vi="nvim"
 
-alias ll="ls -AvlF"
-alias l="ls -lv"
+alias ll="lsd -AvlF"
+alias l="lsd -lv"
 
 alias ..="cd .."
 alias ...="cd ../.."
