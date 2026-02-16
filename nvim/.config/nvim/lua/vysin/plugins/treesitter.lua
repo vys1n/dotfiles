@@ -1,8 +1,7 @@
 return {
-    -- Treesitter plugin
     {
         'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate', -- Automatically update parsers
+        build = ':TSUpdate',
         event = { 'BufReadPost', 'BufNewFile' },
         opts = {
             ensure_installed = {
