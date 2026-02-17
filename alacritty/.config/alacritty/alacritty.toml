@@ -48,19 +48,9 @@ key = "Q"
 mods = "Control"
 
 [[keyboard.bindings]]
-action = "Quit"
-key = "W"
-mods = "Control"
-
-[[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "Return"
 mods = "Super|Shift"
-
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "N"
-mods = "Control"
 
 [window]
 opacity = 0.95
