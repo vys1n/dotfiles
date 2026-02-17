@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true })
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 
 vim.keymap.set("n", "<S-Z>", ":w<CR>", { noremap = true })
 vim.keymap.set("n", "<S-X>", ":wq<CR>", { noremap = true })
