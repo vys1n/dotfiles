@@ -63,7 +63,7 @@ key = "N"
 mods = "Control"
 
 [window]
-opacity = 0.98
+opacity = 0.95
 decorations = "none"
 dynamic_padding = true
 
