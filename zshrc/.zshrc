@@ -47,6 +47,8 @@ alias l="ls -lv"
 alias ..="cd .."
 alias ...="cd ../.."
 
+alias ta="tmux attach"
+
 alias update="sudo apt update && sudo apt upgrade"
 
 alias vifzf='nvim $(fzf --preview="batcat --color=always {}")'
