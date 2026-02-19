@@ -27,7 +27,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 bindsym $mod+Return exec $term
 
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 bindsym Mod1+F4 kill
 
 bindsym $mod+d exec $menu
@@ -120,7 +120,7 @@ exec mako
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-bindsym $mod+Mod1+b exec firefox
+bindsym $mod+Mod1+b exec google-chrome 
 bindsym $mod+Mod1+f exec nautilus
 
 # capture the Focused monitor only, save it
