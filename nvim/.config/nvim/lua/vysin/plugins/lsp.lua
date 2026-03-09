@@ -4,10 +4,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "mason-org/mason.nvim",
         "mason-org/mason-lspconfig.nvim",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "jcha0713/cmp-tw2css",
         "hrsh7th/nvim-cmp",
     },
 
@@ -26,12 +22,15 @@ return {
 
         require("mason").setup()
         require("mason-lspconfig").setup({
-            automatic_installation = false,
             ensure_installed = {
                 "lua_ls",
+                "html",
+                "cssls",
+                "marksman",
                 "clangd",
                 "jdtls",
-                "pyright"
+                "pyright",
+                "ts_ls",
             },
             handlers = {
                 function(server_name)
@@ -39,35 +38,31 @@ return {
                         capabilities = capabilities
                     }
                 end,
-                ["jdtls"] = function()
-                    require("lspconfig").jdtls.setup {
-                        capabilities = capabilities,
-                        on_attach = function(client, bufnr)
-                            -- Java-specific keymaps (optional)
-                            local opts = { buffer = bufnr }
-                            vim.keymap.set("n", "<leader>oi", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-                            vim.keymap.set("n", "<leader>ev", "<Cmd>lua require'jdtls'.extract_variable()<CR>", opts)
-                            vim.keymap.set("n", "<leader>ec", "<Cmd>lua require'jdtls'.extract_constant()<CR>", opts)
-                        end
-                    }
-                end,
+
                 ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
+                    require("lspconfig").lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-                                runtime = { version = "Lua 5.1" },
+                                runtime = {
+                                    version = "LuaJIT"
+                                },
                                 diagnostics = {
-                                    globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                                }
+                                    globals = { "vim" }
+                                },
+                                workspace = {
+                                    library = vim.api.nvim_get_runtime_file("", true),
+                                    checkThirdParty = false,
+                                },
+                                telemetry = { enable = false },
                             }
                         }
                     }
-                end
+                end,
             }
 
         })
+
         local l = vim.lsp
         l.handlers["textDocument/hover"] = function(_, result, ctx, config)
             config = config or { border = "rounded", focusable = true }
@@ -86,18 +81,13 @@ return {
         end
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
-        vim.api.nvim_set_hl(0, "CmpNormal", {})
         cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                end,
-            },
             mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ['<C-e>'] = vim.NIL
+                ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
+                ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1)),
             }),
 
             window = {
@@ -112,23 +102,23 @@ return {
                     winhighlight = "Normal:CmpNormal",
                 }
             },
+
             sources = cmp.config.sources({
                 {
                     name = "nvim_lsp",
-                    entry_filter = function(entry, ctx)
-                        return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+                    entry_filter = function(entry)
+                        return cmp.lsp.CompletionItemKind.Snippet ~= entry:get_kind()
                     end,
                 },
-                { name = 'cmp-tw2css' },
-            }, {})
+            })
         })
 
 
         local autocmd = vim.api.nvim_create_autocmd
         autocmd({ "BufEnter", "BufWinEnter" }, {
             pattern = { "*.vert", "*.frag" },
-            callback = function(e)
-                vim.cmd("set filetype=glsl")
+            callback = function()
+                vim.bo.filetype = "glsl"
             end
 
         })
@@ -139,11 +129,15 @@ return {
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
                 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+                vim.keymap.set("n", "<leader>k",  function() vim.diagnostic.open_float() end, opts)
                 vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
                 vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("n", "<leader>k", function() vim.diagnostic.open_float() end, opts)
                 vim.keymap.set("n", "<leader>ln", function() vim.diagnostic.goto_next() end, opts)
                 vim.keymap.set("n", "<leader>lp", function() vim.diagnostic.goto_prev() end, opts)
+                vim.keymap.set("n", "<leader>gD", function() vim.lsp.buf.implementation() end, opts)
+                vim.keymap.set("n", "<leader>gi", function() vim.lsp.buf.type_definition() end, opts)
+                vim.keymap.set("n", "<leader>go", function() vim.lsp.buf.references() end, opts)
+                vim.keymap.set("n", "<leader>gs", function() vim.lsp.buf.signature_help() end, opts)
             end
         })
     end
