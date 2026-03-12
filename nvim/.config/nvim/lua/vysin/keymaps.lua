@@ -2,10 +2,6 @@ vim.g.mapleader = " "
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 
-vim.keymap.set("n", "<S-Z>", ":w<CR>", { noremap = true })
-vim.keymap.set("n", "<S-X>", ":wq<CR>", { noremap = true })
-vim.keymap.set("n", "<S-C>", ":q<CR>", { noremap = true })
-
 vim.keymap.set("n", "<A-v>", "<C-v>", { noremap = true})
 
 vim.keymap.set("i", "(", "()<Left>", { noremap = true })
@@ -20,8 +16,6 @@ vim.keymap.set("i", "'", "''<Left>", { noremap = true })
 vim.keymap.set("i", "\"", "\"\"<Left>", { noremap = true })
 
 vim.keymap.set('i', '{', '{<CR>}<Esc>O', { desc = 'Auto-format braces with indentation' })
-
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, desc = "Redo" })
 
