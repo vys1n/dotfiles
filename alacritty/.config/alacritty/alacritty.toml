@@ -53,7 +53,7 @@ key = "Return"
 mods = "Super|Shift"
 
 [window]
-opacity = 0.9
+opacity = 1
 decorations = "none"
 dynamic_padding = true
 

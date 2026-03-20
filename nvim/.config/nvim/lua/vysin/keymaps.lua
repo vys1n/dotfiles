@@ -2,7 +2,12 @@ vim.g.mapleader = " "
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 
+vim.keymap.set("n", ";", ":", { noremap = true })
+
+vim.keymap.set("n", "<leader>w", function() vim.cmd("w") end)
+
 vim.keymap.set("n", "<A-v>", "<C-v>", { noremap = true})
+
 
 vim.keymap.set("i", "(", "()<Left>", { noremap = true })
 vim.keymap.set("i", "[", "[]<Left>", { noremap = true })
