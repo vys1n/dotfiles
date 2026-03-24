@@ -49,7 +49,6 @@ alias ...="cd ../.."
 
 alias ta="tmux attach"
 alias e="exit"
-alias leet="~/scripts/leet_count.sh"
 
 alias update="sudo apt update && sudo apt upgrade"
 
