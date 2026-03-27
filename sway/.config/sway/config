@@ -114,6 +114,8 @@ bindsym $mod+a focus parent
 
 bindsym $mod+F12 exec shutdown now
 
+bindsym F6 input type:touchpad events toggle
+
 set $wallpaper /home/vysin/Wallpapers/rdr.jpg
 set $lock swaylock -f -i $wallpaper -s fill
 bindsym F9 exec $lock
