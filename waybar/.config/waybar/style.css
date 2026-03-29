@@ -64,7 +64,6 @@
 #battery,
 #cpu,
 #memory,
-#idle_inhibitor,
 #backlight,
 #network,
 #pulseaudio,
@@ -179,12 +178,6 @@
 #pulseaudio.muted {
     color: #3b4252;
     /* border-bottom: 2px solid #3b4252; */
-}
-
-#idle_inhibitor {
-    background-color: #ebcb8b;
-    color: @base;
-    border-radius: 10px;
 }
 
 #tray {
