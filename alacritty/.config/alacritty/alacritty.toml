@@ -62,4 +62,4 @@ x = 0
 y = 0
 
 [general]
-import = ["monokai_charcoal.toml"]
+import = ["hyper.toml"]
