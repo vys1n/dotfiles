@@ -38,7 +38,6 @@ LS_COLORS+="*.mp4=01;35:*.mkv=01;35:*.webm=01;35:*.avi=01;35:"
 export LS_COLORS
 
 
-alias vim="nvim"
 alias vi="nvim"
 
 alias ll="ls -AvlF"
@@ -83,3 +82,5 @@ export PATH="$PATH:/usr/local/go/bin"
 
 # System local bin (kept last for priority balance)
 export PATH="/usr/local/bin:$PATH"
+
+. "$HOME/.local/share/../bin/env"

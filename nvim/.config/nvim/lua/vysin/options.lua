@@ -7,7 +7,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.winborder = "rounded"
 
-vim.opt.smartindent = true
+vim.opt.smartindent = false
+vim.opt.autoindent = true
+vim.opt.cindent = false
 
 vim.opt.wrap = false
 

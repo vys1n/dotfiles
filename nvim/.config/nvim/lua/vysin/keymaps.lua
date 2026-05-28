@@ -8,19 +8,16 @@ vim.keymap.set("n", "<leader>w", function() vim.cmd("w") end)
 
 vim.keymap.set("n", "<A-v>", "<C-v>", { noremap = true})
 
-
 vim.keymap.set("i", "(", "()<Left>", { noremap = true })
 vim.keymap.set("i", "[", "[]<Left>", { noremap = true })
 vim.keymap.set("i", "{", "{}<Left>", { noremap = true })
-
-vim.keymap.set("i", "{<CR>", "{<CR>}", { noremap = true })
+-- vim.keymap.set("i", "{<CR>", "{<CR>}", { noremap = true })
+-- vim.keymap.set('i', '{', '{<CR>}<Esc>O', { noremap = true })
 
 vim.keymap.set("i", "{{", "{", { noremap = true })
 vim.keymap.set("i", "{}", "{}", { noremap = true })
 vim.keymap.set("i", "'", "''<Left>", { noremap = true })
 vim.keymap.set("i", "\"", "\"\"<Left>", { noremap = true })
-
-vim.keymap.set('i', '{', '{<CR>}<Esc>O', { desc = 'Auto-format braces with indentation' })
 
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, desc = "Redo" })
 
@@ -44,10 +41,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/scripts/tmux-sessionizer<CR>")
---vim.keymap.set("n", "<C-f>", "<cmd>silent !alacritty -e ~/scripts/tmux-sessionizer.sh<CR>")
--- vim.keymap.set("n", "<leader>f", function()
---     require("conform").format({ bufnr = 0 })
--- end)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
