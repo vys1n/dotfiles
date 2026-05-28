@@ -1,15 +1,15 @@
 {
-  "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 10,
+  "layer": "top",
+  "position": "top",
+  "height": 28,
   "margin": "0 0 0 0",
-  //"width": 1350, // Waybar width
-  // Choose the order of the modules idle_inhibitor
   "modules-left": [
     "sway/workspaces",
     "sway/mode"
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "backlight",
     "pulseaudio",
@@ -20,28 +20,23 @@
     "tray",
     "custom/power"
   ],
-
-  // Modules configuration
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "{name} {icon} ",
-    "format-icons": {
-      "focused": "",
-      "default": ""
-    },
+    "format": "{name}",
     "persistent-workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
     }
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
   },
   "tray": {
-    "icon-size": 14,
-    "spacing": 5
+    "icon-size": 15,
+    "spacing": 8
   },
   "clock": {
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -52,11 +47,11 @@
       "on-scroll": 1,
       "on-click-right": "mode",
       "format": {
-        "months": "<span color='#bb9af7'><b>{}</b></span>",  // Purple
-        "days": "<span color='#7aa2f7'><b>{}</b></span>",    // Blue
-        "weeks": "<span color='#9ece6a'><b>W{}</b></span>",  // Green
-        "weekdays": "<span color='#e0af68'><b>{}</b></span>",// Yellow
-        "today": "<span background='#2ac3de' color='#1a1b26'><b><u>{}</u></b></span>" // Cyan background with dark text
+        "months": "<span color='#bb9af7'><b>{}</b></span>",
+        "days": "<span color='#7aa2f7'><b>{}</b></span>",
+        "weeks": "<span color='#9ece6a'><b>W{}</b></span>",
+        "weekdays": "<span color='#e0af68'><b>{}</b></span>",
+        "today": "<span background='#2ac3de' color='#1a1b26'><b><u>{}</u></b></span>"
       }
     },
     "actions": {
@@ -66,14 +61,12 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     },
-    "format": "{:%a %d %b | %I:%M %p}", //12 hour format
-    "format-alt": "  {:%d-%m-%y  %H:%M:%S}",
+    "format": "{:%a %d %b | %I:%M %p}",
+    "format-alt": "{:%d-%m-%y  %H:%M:%S}",
     "interval": 1
   },
-
-  // System
   "cpu": {
-    "format": " {usage:>3}%",
+    "format": "  {usage:2}%",
     "on-click": "alacritty -e htop"
   },
   "memory": {
@@ -82,48 +75,38 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent: >3}%",
-    // "format-icons": ["", ""],
+    "format": "{icon}  {percent:2}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-down": "brightnessctl -c backlight set 5%-",
-    // "on-scroll-down": "light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob",
     "on-scroll-up": "brightnessctl -c backlight set +5%",
-    // "on-scroll-up": "light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob"
     "on-click": ""
   },
   "battery": {
     "states": {
-      // "good": 95,
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity: >3}%",
-    "format-charging": "󰂄 {capacity}%",
+    "format": "{icon}  {capacity:2}%",
+    "format-charging": "󰂄  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": ["", "", "", "", ""]
   },
   "network": {
-    // "interface": "wlp2s0", // (Optional) To force the use of this interface
     "format": "⚠  Disabled",
-    "format-wifi": "  {essid}",
-    // "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+    "format-wifi": "  <span color='#e7edf5' alpha='45%'>{essid}</span>",
     "format-ethernet": "  Wired",
     "format-disconnected": "⚠  Disconnected",
-    "tooltip-format": " {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
     "tooltip-format-disconnected": "⚠  Disconnected",
-    // "on-click": "alacritty -e nmtui"
     "on-click": "nm-connection-editor"
   },
   "pulseaudio": {
-    // "scroll-step": 5,
-    "format": "{icon} {volume: >3}%",
-    "format-bluetooth": "{icon} {volume: >3}%",
-    "format-muted": " muted",
+    "format": "{icon}  {volume:2}%",
+    "format-bluetooth": "{icon}  {volume:2}%",
+    "format-muted": "  muted",
     "format-icons": {
       "headphones": "",
       "handsfree": "",
@@ -131,20 +114,18 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [" ", "" ]
+      "default": ["", ""]
     },
     "on-click": "pavucontrol",
-    // "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob",
-    // "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob"
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
   },
   "custom/pacman": {
-    "format": " {}",
-    "interval": 7200, // every two hours
-    "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'", // # of updates and tooltip details
-    "exec-if": "exit 0", // always run; consider advanced run conditions
-    "on-click": "alacritty -e sudo pacman -Syu", // update system
+    "format": "  {}",
+    "interval": 7200,
+    "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",
+    "exec-if": "exit 0",
+    "on-click": "alacritty -e sudo pacman -Syu",
     "signal": 8
   },
   "custom/power": {
