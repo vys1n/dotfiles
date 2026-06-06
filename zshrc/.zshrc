@@ -84,3 +84,10 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="/usr/local/bin:$PATH"
 
 . "$HOME/.local/share/../bin/env"
+
+# bun completions
+[ -s "/home/vysin/.bun/_bun" ] && source "/home/vysin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
