@@ -23,13 +23,7 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "{name}",
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": []
-    }
+    "format": "{name}"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
