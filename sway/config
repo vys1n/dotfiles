@@ -6,7 +6,7 @@ set $term alacritty
 
 set $menu rofi -show drun
 
-output * bg spaceship.png fill
+output * bg wallpaper.png fill
 
 input type:keyboard {
     xkb_layout "us"
