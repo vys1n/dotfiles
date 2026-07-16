@@ -6,7 +6,7 @@ set $term alacritty
 
 set $menu rofi -show drun
 
-output * bg wallpaper.jpg fill
+output * bg spaceship.png fill
 
 input type:keyboard {
     xkb_layout "us"
@@ -125,7 +125,8 @@ bindsym $mod+x exec ~/scripts/toggle_waybar.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
-exec mako
+exec swaync
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # exec waybar
 
@@ -146,15 +147,15 @@ bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+tab workspace back_and_forth
 
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym j resize grow height 2 px or 2 ppt
+        bindsym k resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
