@@ -18,18 +18,6 @@ M.items = {
             vim.g.moonflyItalics = false
 
             vim.cmd("colorscheme moonfly")
-
-            vim.cmd([[
-            highlight Normal        ctermbg=NONE guibg=NONE
-            highlight NormalNC      ctermbg=NONE guibg=NONE
-            highlight NormalFloat   ctermbg=NONE guibg=NONE
-            highlight FloatBorder   ctermbg=NONE guibg=NONE
-            highlight Pmenu         ctermbg=NONE guibg=NONE
-            highlight SignColumn    ctermbg=NONE guibg=NONE
-            highlight VertSplit     ctermbg=NONE guibg=NONE
-            highlight LineNr        ctermbg=NONE guibg=NONE
-            highlight CursorLineNr  ctermbg=NONE guibg=NONE
-            ]])
         end,
     },
     {
@@ -43,29 +31,6 @@ M.items = {
             })
             vim.cmd("colorscheme rose-pine")
         end,
-    },
-    {
-        repo = "EdenEast/nightfox.nvim",
-        schemes = { "carbonfox" },
-        config = function()
-            require("nightfox").setup({
-                options = {
-                    transparent = true,
-                },
-            })
-            vim.cmd("colorscheme carbonfox")
-        end,
-    },
-    {
-        repo = "projekt0n/github-nvim-theme",
-        schemes = {
-            "github_dark_default",
-            "github_dark_high_contrast",
-        },
-    },
-    {
-        repo = "RRethy/base16-nvim",
-        schemes = { "base16-default-dark" },
     },
 }
 
